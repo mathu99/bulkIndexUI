@@ -1,0 +1,59 @@
+<div class="container">
+    <br>
+    <div class="card">
+        <div class="card-header">
+            <h4>Synapse Bulk Indexer</h4>
+        </div>
+        <div class="card-block">
+            <br>
+            <div class="row">
+                <div class="col-2"></div>
+                <div class="col-3">
+                    Country:
+                </div>
+                <div class="col-4">
+                    <div class="form-group">
+                        <select class="form-control" [(ngModel)]="data.selectedCountry">
+                            <option *ngFor="let country of countries" [ngValue]="country">{{country.name}}</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-3"></div>
+            </div>
+            <div class="row">
+                <div class="col-2"></div>
+                <div class="col-3">
+                    Environment:
+                </div>
+                <div class="col-4">
+                    <div class="form-group">
+                        <select class="form-control" [(ngModel)]="data.selectedEnviornment">
+                            <option *ngFor="let environment of environments" [ngValue]="environment.name">{{environment.name}}</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-3"></div>
+            </div>
+            <div class="row">
+                <div class="col-5"></div>
+                <div class="col-4 text-left">
+                    <button ng-click="checkEnvironment()" ng-disabled="!customerNumber || !selectedEnvironment || !selectedCountry" class="btn btn-success left-10"
+                        style="min-width:150pt">Run</button>
+                </div>
+                <div class="col-3"></div>
+            </div>
+            <br>
+        </div>
+    </div>
+    <br>
+    <div class="card">
+        <div class="card-header">
+            <h4>Logs</h4>
+        </div>
+        <div class="card-block col-centered p-3 w-100">
+            <textarea class="ta w-100 rounded p-1" rows="5">{{ data.logs }}</textarea>
+        </div>
+    </div>
+    <br>
+    <br>
+</div>
