@@ -10,7 +10,7 @@ app.use(express.static(__dirname));
 app.use(bodyParser.json()); // support json encoded bodies
 // app.use(bodyParser.urlencoded({ extended: true })); // support encoded bodies
 
-var config = require('./config');
+const config = require('./config');
 
 app.get('/', (req, res) => {  // the "index" route, which serves the Angular app
     res.sendFile(path.join(__dirname, '/dist/index.html'))
@@ -21,7 +21,7 @@ app.get('/api/countries/', (req, res) => {
 });
 
 app.get('/api/config/:key', (req, res) => {
-    var options = {
+    const options = {
         url: `${config.esb}config/${req.params.key}`,
         json: true,
         headers: {
@@ -44,4 +44,5 @@ app.get('/api/batTest/', (req, res) => {
 app.listen(3000, () => {
     console.log('Example listening on port 3000!');
 });
+
 module.exports = app;

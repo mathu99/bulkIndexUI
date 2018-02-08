@@ -30,11 +30,16 @@ export class AppComponent {
     this.bulkIndexService.getEnvironments().subscribe(
       data => {
         this.environments = get(data, 'value', '').split(',');
-        this.data.selectedEnviornment = this.environments[0];
+        this.data.selectedEnviornment = get(this, 'environments[0]', null);
       },
       err => console.error(err),
     );
   }
+
+  initiateBulkIndexing = () => {
+    console.log('init')
+  }
+
   ngOnInit() {
     this.getCountries();
     this.getEnvironments();

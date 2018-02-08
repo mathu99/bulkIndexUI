@@ -13,10 +13,4 @@ module.exports = {
         { name: 'Uganda', alias: 'uga', region: 'AF' },
         { name: 'Zambia', alias: 'zmb', region: 'AF' },
         { name: 'Zimbabwe', alias: 'zwe', region: 'AF' }],
-    // environments: [
-    //     { name: 'Dev Shared' },
-    //     { name: 'Dev Test' },
-    //     { name: 'UAT' },
-    //     { name: 'Pre-Prod' },
-    //     { name: 'Support' }],
 }
