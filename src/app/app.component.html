@@ -28,7 +28,7 @@
                 <div class="col-4">
                     <div class="form-group">
                         <select class="form-control" [(ngModel)]="data.selectedEnviornment">
-                            <option *ngFor="let environment of environments" [ngValue]="environment.name">{{environment.name}}</option>
+                            <option *ngFor="let environment of environments" [ngValue]="environment">{{environment}}</option>
                         </select>
                     </div>
                 </div>

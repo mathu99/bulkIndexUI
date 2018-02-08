@@ -12,20 +12,36 @@ app.use(bodyParser.json()); // support json encoded bodies
 
 var config = require('./config');
 
-app.get('/', function (req, res) {  // the "index" route, which serves the Angular app
+app.get('/', (req, res) => {  // the "index" route, which serves the Angular app
     res.sendFile(path.join(__dirname, '/dist/index.html'))
 });
 
-app.get('/api/countries/', function (req, res) {
+app.get('/api/countries/', (req, res) => {
     res.send(config.countries);
 });
 
-app.get('/api/environments/', function (req, res) {
-    res.send(config.environments);
+app.get('/api/config/:key', (req, res) => {
+    var options = {
+        url: `${config.esb}config/${req.params.key}`,
+        json: true,
+        headers: {
+            Accept: 'application/json'
+        }
+    }
+    request(options, (request, respond, body) => {
+        res.send(body);
+    })
+});
+
+app.get('/api/batTest/', (req, res) => {
+    let child_process = require('child_process');
+    child_process.exec('run.bat', (error, stdout, stderr) => {
+        console.log(stdout);
+    });
 });
 
 // HTTP listener
-app.listen(3000, function () {
+app.listen(3000, () => {
     console.log('Example listening on port 3000!');
 });
 module.exports = app;

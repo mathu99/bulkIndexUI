@@ -17,7 +17,7 @@ export class BulkIndexService {
     }
 
     getEnvironments() {
-        return this.http.get('/api/environments');
+        return this.http.get('/api/config/MC.Synapse.BulkIndexer.environments');
     }
     
 }

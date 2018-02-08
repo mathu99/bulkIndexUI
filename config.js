@@ -1,5 +1,5 @@
 module.exports = {
-    esb: 'http://03rnb-esbsyn96:5555/rest/MC_Elasto_Utilities/api/',
+    esb: 'http://03rnb-esbdev00:5555/rest/MC_Elasto_Utilities/api/',
     countries: [
         { name: 'Ethiopia', alias: 'eth', region: 'AF' },
         { name: 'Ghana', alias: 'gha', region: 'AF' },
@@ -13,10 +13,10 @@ module.exports = {
         { name: 'Uganda', alias: 'uga', region: 'AF' },
         { name: 'Zambia', alias: 'zmb', region: 'AF' },
         { name: 'Zimbabwe', alias: 'zwe', region: 'AF' }],
-    environments: [
-        { name: 'Dev Shared' },
-        { name: 'Dev Test' },
-        { name: 'UAT' },
-        { name: 'Pre-Prod' },
-        { name: 'Support' }],
+    // environments: [
+    //     { name: 'Dev Shared' },
+    //     { name: 'Dev Test' },
+    //     { name: 'UAT' },
+    //     { name: 'Pre-Prod' },
+    //     { name: 'Support' }],
 }

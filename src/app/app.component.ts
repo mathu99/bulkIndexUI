@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { BulkIndexService } from './bulkIndex.service';
 import { Observable } from 'rxjs/Rx';
+import { get } from 'lodash';
 
 @Component({
   selector: 'app-root',
@@ -28,8 +29,8 @@ export class AppComponent {
   getEnvironments() {
     this.bulkIndexService.getEnvironments().subscribe(
       data => {
-        this.environments = data;
-        this.data.selectedEnviornment = this.environments[0].name;
+        this.environments = get(data, 'value', '').split(',');
+        this.data.selectedEnviornment = this.environments[0];
       },
       err => console.error(err),
     );
