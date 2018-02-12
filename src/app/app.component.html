@@ -1,7 +1,7 @@
 <div class="container">
     <div class="text-center">
-            <img src="/assets/multichoice.png" id="multichoiceLogo" />
-            <h4>Synapse Bulk Index UI</h4>
+        <img src="/assets/multichoice.png" id="multichoiceLogo" />
+        <h4>Synapse Bulk Index UI</h4>
     </div>
     <br>
     <div class="card">
@@ -41,7 +41,7 @@
             <div class="row">
                 <div class="col-5"></div>
                 <div class="col-4 text-left">
-                    <button (click)="initiateBulkIndexing()" [disabled]="!data.selectedEnviornment || !data.selectedCountry" class="btn btn-success left-10"
+                    <button (click)="initiateBulkIndexing(data.selectedCountry, data.selectedEnviornment)" [disabled]="!data.selectedEnviornment || !data.selectedCountry" class="btn btn-success left-10"
                         style="min-width:150pt">Run</button>
                 </div>
                 <div class="col-3"></div>

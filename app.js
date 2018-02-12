@@ -40,6 +40,21 @@ app.get('/api/batTest/', (req, res) => {
     });
 });
 
+app.post('/api/bulkIndexerProcess/', (req, res) => {
+    const options = {
+        url: `${config.esb}bulkIndexer/`,
+        body: req.body,
+        method: 'POST',
+        json: true,
+        headers: {
+            Accept: 'application/json'
+        }
+    }
+    request(options, (request, respond, body) => {
+        res.send(body);
+    })
+});
+
 // HTTP listener
 app.listen(3000, () => {
     console.log('Example listening on port 3000!');

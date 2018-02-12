@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 import { BulkIndexService } from './bulkIndex.service';
 import { Observable } from 'rxjs/Rx';
-import { get } from 'lodash';
+import { get, set } from 'lodash';
+import { environment } from '../environments/environment';
 
 @Component({
   selector: 'app-root',
@@ -37,7 +38,19 @@ export class AppComponent {
   }
 
   initiateBulkIndexing = () => {
-    console.log('init')
+    this.bulkIndexService.initiateBulkIndexing(this.data.selectedCountry.name, this.data.selectedEnviornment).subscribe(
+      data => {
+        switch (get(data, 'headerResponse.status')) {
+          case '200': {
+            set(this.data, 'logs', 'Bulk Indexing process initiated...\n');
+          } break;
+          case '400': {
+            set(this.data, 'logs', 'Could not initiate Bulk Indexing. Reason:\n' + get(data, 'headerResponse.statusMessage'));
+          }break;
+        }
+      },
+      err => console.error(err),
+    );
   }
 
   ngOnInit() {
