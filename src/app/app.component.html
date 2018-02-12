@@ -17,7 +17,7 @@
                 </div>
                 <div class="col-4">
                     <div class="form-group">
-                        <select class="form-control" [(ngModel)]="data.selectedCountry">
+                        <select class="form-control" [(ngModel)]="data.selectedCountry" [disabled]="properties.bulkIndexingRunning">
                             <option *ngFor="let country of countries" [ngValue]="country">{{country.name}}</option>
                         </select>
                     </div>
@@ -31,7 +31,7 @@
                 </div>
                 <div class="col-4">
                     <div class="form-group">
-                        <select class="form-control" [(ngModel)]="data.selectedEnviornment">
+                        <select class="form-control" [(ngModel)]="data.selectedEnviornment" [disabled]="properties.bulkIndexingRunning">
                             <option *ngFor="let environment of environments" [ngValue]="environment">{{environment}}</option>
                         </select>
                     </div>
@@ -41,7 +41,7 @@
             <div class="row">
                 <div class="col-5"></div>
                 <div class="col-4 text-left">
-                    <button (click)="initiateBulkIndexing(data.selectedCountry, data.selectedEnviornment)" [disabled]="!data.selectedEnviornment || !data.selectedCountry" class="btn btn-success left-10"
+                    <button (click)="initiateBulkIndexing(data.selectedCountry, data.selectedEnviornment)" [disabled]="!data.selectedEnviornment || !data.selectedCountry || properties.bulkIndexingRunning" class="btn btn-success left-10"
                         style="min-width:150pt">Run</button>
                 </div>
                 <div class="col-3"></div>

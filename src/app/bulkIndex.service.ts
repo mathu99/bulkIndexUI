@@ -20,7 +20,7 @@ export class BulkIndexService {
         return this.http.get('/api/config/MC.Synapse.BulkIndexer.environments');
     }
 
-    initiateBulkIndexing(country, environment) {
+    initiateBulkIndexing(country: String, environment: String) {
         let data = {
             'getBulkIndexerInputs': {
                 country,
@@ -29,7 +29,5 @@ export class BulkIndexService {
         };
         return this.http.post('/api/bulkIndexerProcess/', data);
     }
-
-
-
+    
 }
